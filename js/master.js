@@ -19,6 +19,11 @@ if (localStorage !== null) {
     }
   });
 }
+//Random Background Option
+let backgroundOption = true;
+
+// Variable to Control The Interval
+let backgroundInterval;
 
 // Toggle Spin Class On Icon
 document.querySelector(".toggle-settings .fa-gear").onclick = function () {
@@ -63,12 +68,20 @@ randomBackEl.forEach((span) => {
     //Click On Every Span
     console.log(e.target.dataset.color);
 
-    // Remove Active Class From All Spans
+    // Remove Active Class From All Children
     e.target.parentElement.querySelectorAll(".active").forEach((element) => {
       element.classList.remove("active");
     });
     //Add Active Class On Self
     e.target.classList.add("active");
+
+    if (e.target.dataset.background === "yes") {
+      backgroundOption = true;
+      randomizeImgs();
+    } else {
+      backgroundOption = false;
+      clearInterval(backgroundInterval);
+    }
   });
 });
 // Select Landing page Element
@@ -79,11 +92,17 @@ let landingPage = document.querySelector(".landing-page");
 
 let imgsArray = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"];
 
-setInterval(() => {
-  // Get Random Number
-  let randomNumber = Math.floor(Math.random() * imgsArray.length);
-  // Change background image URL
+//Function To Randomize Imgs
+function randomizeImgs() {
+  if (backgroundOption === true) {
+    backgroundInterval = setInterval(() => {
+      // Get Random Number
+      let randomNumber = Math.floor(Math.random() * imgsArray.length);
 
-  landingPage.style.backgroundImage =
-    'url("imgs/' + imgsArray[randomNumber] + '")';
-}, 5000);
+      // Change background image URL
+
+      landingPage.style.backgroundImage =
+        'url("imgs/' + imgsArray[randomNumber] + '")';
+    }, 1000);
+  }
+}
