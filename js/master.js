@@ -54,6 +54,23 @@ colorsLi.forEach((li) => {
     e.target.classList.add("active");
   });
 });
+// Switch Random Background Option
+const randomBackEl = document.querySelectorAll(".random-backgrounds span");
+
+// Loop On All Spans
+randomBackEl.forEach((span) => {
+  span.addEventListener("click", (e) => {
+    //Click On Every Span
+    console.log(e.target.dataset.color);
+
+    // Remove Active Class From All Spans
+    e.target.parentElement.querySelectorAll(".active").forEach((element) => {
+      element.classList.remove("active");
+    });
+    //Add Active Class On Self
+    e.target.classList.add("active");
+  });
+});
 // Select Landing page Element
 
 let landingPage = document.querySelector(".landing-page");
