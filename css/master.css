@@ -86,8 +86,8 @@ body {
 .settings-box .option-box .colors-list li:nth-child(5) {
   background-color: #4caf50;
 }
-.settings-box .option-box .yes,
-.settings-box .option-box .no {
+.settings-box .random-backgrounds .yes,
+.settings-box .random-backgrounds .no {
   width: 50px;
   background-color: #009688;
   color: #fff;
@@ -102,10 +102,6 @@ body {
 }
 .settings-box .random-backgrounds span.active {
   opacity: 1;
-}
-.settings-box .random-backgrounds .yes {
-}
-.settings-box .random-backgrounds .no {
 }
 
 /* End Settings Box */
@@ -282,4 +278,27 @@ body {
   cursor: pointer;
 }
 
+.popup-overlay {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.popup-box {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  z-index: 1001;
+}
+.popup-box img {
+  max-width: 100%;
+}
 /* End Gallery */
